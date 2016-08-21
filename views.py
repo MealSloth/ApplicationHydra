@@ -1,11 +1,11 @@
 from settings import GCS_CLIENT_ID, GOOGLE_CLOUD_STORAGE_URL
-from _include.Chimera.Chimera.settings import TIME_FORMAT
-from _include.Chimera.Chimera.utils import model_to_dict
-from _include.Chimera.Chimera.models import Album, Blob
-from _include.Chimera.Chimera.results import Result
 from django.core.files.base import ContentFile
 from google_cloud import GoogleCloudStorage
+from Chimera.settings import TIME_FORMAT
+from Chimera.utils import model_to_dict
+from Chimera.models import Album, Blob
 from django.http import HttpResponse
+from Chimera.results import Result
 from datetime import datetime
 from json import dumps, loads
 from base64 import b64decode
