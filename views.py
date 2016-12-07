@@ -59,7 +59,7 @@ def album_delete(request):
             response = Result.get_result_dump(Result.DATABASE_ENTRY_NOT_FOUND)
             return HttpResponse(response, content_type='application/json')
 
-        blob_list = Blob.objects.filter(album_id=album.id)
+        blob_list = Blob.objects.filter(album=album)
 
         gcs = GoogleCloudStorage()
 
@@ -130,7 +130,7 @@ def blob_upload(request):
                 return HttpResponse(response, content_type='application/json')
 
         blob = Blob(
-            album_id=album.id,
+            album=album,
             content_type='image/' + imghdr.what(image_file),
             time=datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f"),
         )
